@@ -1,5 +1,5 @@
 resource "aws_elasticache_cluster" "redis" {
-  cluster_id           = "Rshop-${var.env}-redis"
+  cluster_id           = "roboshop-${var.env}-redis"
   engine               = "redis"
   node_type            = var.redis_instance_class
   num_cache_nodes      = var.redis_instance_count
@@ -25,7 +25,7 @@ resource "aws_elasticache_parameter_group" "main" {
 }
 
 resource "aws_elasticache_subnet_group" "main" {
-  name       = "Rshop-${var.env}-subnet-grp"
+  name       = "rshop-${var.env}-subnet-grp"
   subnet_ids = var.db_subnet_ids
 
   tags = {
@@ -49,6 +49,6 @@ resource "aws_security_group" "main" {
 
 
   tags = {
-    Name = "Roboshop-${var.env}-redis"
+    Name = "roboshop-${var.env}-redis"
   }
 }

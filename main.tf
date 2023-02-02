@@ -34,8 +34,8 @@ resource "aws_elasticache_subnet_group" "main" {
 }
 
 resource "aws_security_group" "main" {
-  name        = "roboshop-${var.env}-docdb"
-  description = "roboshop-${var.env}-docdb"
+  name        = "roboshop-${var.env}-redis"
+  description = "roboshop-${var.env}-redis"
   vpc_id      = var.vpc_id
 
   ingress {

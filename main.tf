@@ -47,6 +47,15 @@ resource "aws_security_group" "main" {
 
   }
 
+  ingress {
+    description      = "SSH"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = [var.vpc_cidr_block]
+
+  }
+
 
   tags = {
     Name = "roboshop-${var.env}-redis"
